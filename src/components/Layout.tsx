@@ -8,7 +8,7 @@ export function Layout() {
 
   useEffect(() => {
     window.scrollTo(0, 0)
-  }, [location.pathname])
+  }, [location.key])
 
   return (
     <div className="min-h-screen bg-paper text-ink">

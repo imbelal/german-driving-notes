@@ -32,3 +32,15 @@ src/
 3. Create the diagram in `src/components/diagrams/scenes/` and register it in `ScenarioDiagram.tsx`.
 
 Lesson progress is stored in the browser only (no backend). This site is a study aid, not legal advice — always follow the current StVO, your driving instructor and official exam guidance.
+
+## Deploy to GitHub Pages
+
+The repo is configured for GitHub Pages with a GitHub Actions workflow.
+
+1. Push the repo to GitHub.
+2. In the repository, open **Settings → Pages** and set **Build and deployment → Source** to **GitHub Actions**.
+3. Push to `main` (or run the workflow manually from the Actions tab).
+
+The site will be published at `https://<username>.github.io/<repository>/`.
+
+The app uses hash routing (`#/scenario/...`) and a relative Vite base, so deep links work on GitHub Pages without any server-side rewrite or custom 404 page.

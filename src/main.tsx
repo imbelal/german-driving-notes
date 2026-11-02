@@ -1,6 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import { BrowserRouter } from 'react-router-dom'
+import { HashRouter } from 'react-router-dom'
 import './index.css'
 import App from './App.tsx'
 import { ProgressProvider } from './hooks/useProgress.tsx'
@@ -8,9 +8,9 @@ import { ProgressProvider } from './hooks/useProgress.tsx'
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <ProgressProvider>
-      <BrowserRouter>
+      <HashRouter>
         <App />
-      </BrowserRouter>
+      </HashRouter>
     </ProgressProvider>
   </StrictMode>,
 )
