@@ -22,6 +22,7 @@ import { useProgress } from '../hooks/useProgress'
 import { categoryIcons } from './categoryIcons'
 import { ProgressBar } from './ProgressBar'
 import { ThemeToggle } from './ThemeToggle'
+import { InstallAppButton } from './InstallAppButton'
 
 const linkBase =
   'flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition-colors'
@@ -261,6 +262,7 @@ export function Sidebar({ open, onClose }: { open: boolean; onClose: () => void 
         </nav>
 
         <div className="border-t border-line px-5 py-4">
+          <InstallAppButton />
           <div className="mb-2 flex items-center justify-between text-[11px] font-semibold text-ink-soft">
             <span>Your progress</span>
             <span>{count} of {scenarios.length}</span>
