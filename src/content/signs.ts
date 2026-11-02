@@ -370,6 +370,150 @@ export const signs: SignEntry[] = [
     key: 'railway-cross',
     group: 'Warning',
   },
+  {
+    id: 'traffic-calmed',
+    name: 'Traffic-calmed area',
+    german: 'Verkehrsberuhigter Bereich',
+    meaning:
+      'Walking pace applies, pedestrians have priority and parking is only allowed in marked areas. Children may play in the street.',
+    key: 'traffic-calmed',
+    group: 'Information',
+  },
+  {
+    id: 'bus-stop',
+    name: 'Bus or tram stop',
+    german: 'Haltestelle',
+    meaning:
+      'No parking within 15 m. Watch for passengers, children and vehicles pulling out of the stop.',
+    key: 'bus-stop',
+    group: 'Information',
+  },
+  {
+    id: 'environmental-zone',
+    name: 'Environmental zone',
+    german: 'Umweltzone',
+    meaning:
+      'Only vehicles with the required emissions sticker may enter. Check the zone rules before driving in.',
+    key: 'environmental-zone',
+    group: 'Information',
+  },
+  {
+    id: 'parking-disc',
+    name: 'Parking with a disc',
+    german: 'Parken mit Parkscheibe',
+    meaning:
+      'Parking is allowed only with a correctly set parking disc, within the time shown. Display it clearly behind the windscreen.',
+    key: 'parking-disc',
+    group: 'Information',
+  },
+  {
+    id: 'motor-road',
+    name: 'Motor road',
+    german: 'Kraftfahrstraße',
+    meaning:
+      'Motorway-like rules apply: no pedestrians, cyclists or slow vehicles. Keep right except when overtaking.',
+    key: 'motor-road',
+    group: 'Information',
+  },
+  {
+    id: 'yield-to-oncoming',
+    name: 'Yield to oncoming traffic',
+    german: 'Dem Gegenverkehr Vorrang gewähren',
+    meaning:
+      'Oncoming traffic has priority through the narrow section. Wait at the wider point and let it pass.',
+    key: 'yield-to-oncoming',
+    group: 'Priority',
+  },
+  {
+    id: 'end-minimum-speed',
+    name: 'End of minimum speed',
+    german: 'Ende der vorgeschriebenen Mindestgeschwindigkeit',
+    meaning:
+      'The minimum-speed requirement ends. The general speed limits for the road apply again.',
+    key: 'end-minimum-speed',
+    group: 'Speed',
+  },
+  {
+    id: 'tunnel',
+    name: 'Tunnel',
+    german: 'Tunnel',
+    meaning:
+      'Switch on dipped beam, keep a safe distance, follow the signs and never turn or reverse. Leave the tunnel if traffic stops for long.',
+    key: 'tunnel',
+    group: 'Information',
+  },
+  {
+    id: 'emergency-exit',
+    name: 'Emergency exit',
+    german: 'Notausgang',
+    meaning:
+      'Emergency exit, usually in a tunnel. Follow the running-person and arrow signs to the nearest safe exit.',
+    key: 'emergency-exit',
+    group: 'Information',
+  },
+  {
+    id: 'weight-limit',
+    name: 'Weight limit',
+    german: 'Verbot für Fahrzeuge über 7,5 t',
+    meaning:
+      'Vehicles above the shown weight may not enter. The limit applies to the actual vehicle weight.',
+    key: 'weight-limit',
+    group: 'Prohibition',
+  },
+  {
+    id: 'height-limit',
+    name: 'Height limit',
+    german: 'Verbot für Fahrzeuge über 3,5 m Höhe',
+    meaning:
+      'Vehicles higher than the shown limit may not pass. Check the actual height including any load or roof box.',
+    key: 'height-limit',
+    group: 'Prohibition',
+  },
+  {
+    id: 'length-limit',
+    name: 'Length limit',
+    german: 'Verbot für Fahrzeuge über 10 m Länge',
+    meaning:
+      'Vehicles longer than the shown limit may not enter. This is mainly relevant for trailers and large vehicles.',
+    key: 'length-limit',
+    group: 'Prohibition',
+  },
+  {
+    id: 'first-aid',
+    name: 'First aid',
+    german: 'Erste Hilfe',
+    meaning:
+      'First-aid point or first-aid equipment. Know where the kit is in your car and how to use it.',
+    key: 'first-aid',
+    group: 'Information',
+  },
+  {
+    id: 'hospital',
+    name: 'Hospital',
+    german: 'Krankenhaus',
+    meaning:
+      'Hospital nearby. Watch for ambulances, pedestrians and signs directing traffic to the emergency entrance.',
+    key: 'hospital',
+    group: 'Information',
+  },
+  {
+    id: 'fuel',
+    name: 'Fuel station',
+    german: 'Tankstelle',
+    meaning:
+      'Fuel station ahead or nearby. Useful for planning longer routes and checking fuel before the Autobahn.',
+    key: 'fuel',
+    group: 'Information',
+  },
+  {
+    id: 'emergency-phone',
+    name: 'Emergency phone',
+    german: 'Notrufsäule',
+    meaning:
+      'Emergency call point, often on the Autobahn. Use it if you have no mobile signal and give your location clearly.',
+    key: 'emergency-phone',
+    group: 'Information',
+  },
 ]
 
 export const signGroups = [

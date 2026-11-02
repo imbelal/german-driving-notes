@@ -836,6 +836,155 @@ function renderSign(type: string, s: number, _bg: { x: number; y: number }) {
           <rect x={-s * 0.46} y={-s * 0.08} width={s * 0.92} height={s * 0.16} fill="#fff" stroke={C.hazard} strokeWidth={s * 0.05} />
         </g>
       )
+    case 'traffic-calmed':
+      return (
+        <>
+          <rect x={s * 0.03} y={s * 0.1} width={s * 0.94} height={s * 0.8} rx={s * 0.05} fill="#1d4ed8" />
+          <rect x={s * 0.14} y={s * 0.46} width={s * 0.2} height={s * 0.22} fill="#fff" />
+          <path d={`M ${s * 0.11} ${s * 0.48} L ${s * 0.24} ${s * 0.33} L ${s * 0.37} ${s * 0.48} Z`} fill="#fff" />
+          <rect x={s * 0.45} y={s * 0.56} width={s * 0.22} height={s * 0.12} rx={s * 0.02} fill="#fff" />
+          <circle cx={s * 0.5} cy={s * 0.7} r={s * 0.035} fill="#fff" />
+          <circle cx={s * 0.62} cy={s * 0.7} r={s * 0.035} fill="#fff" />
+          <circle cx={s * 0.78} cy={s * 0.52} r={s * 0.045} fill="#fff" />
+          <path d={`M ${s * 0.78} ${s * 0.57} L ${s * 0.75} ${s * 0.72} M ${s * 0.78} ${s * 0.6} L ${s * 0.87} ${s * 0.66}`} stroke="#fff" strokeWidth={s * 0.035} strokeLinecap="round" />
+          <circle cx={s * 0.86} cy={s * 0.78} r={s * 0.04} fill="#fff" stroke="#1d4ed8" strokeWidth={s * 0.015} />
+        </>
+      )
+    case 'bus-stop':
+      return (
+        <>
+          <rect x={s * 0.04} y={s * 0.16} width={s * 0.92} height={s * 0.68} rx={s * 0.05} fill="#f7c948" stroke="#1f2937" strokeWidth={s * 0.03} />
+          <text x={s * 0.3} y={s * 0.61} textAnchor="middle" fontSize={s * 0.42} fontWeight="800" fill="#15803d">H</text>
+          <rect x={s * 0.52} y={s * 0.36} width={s * 0.34} height={s * 0.26} rx={s * 0.04} fill="#15803d" />
+          <rect x={s * 0.57} y={s * 0.41} width={s * 0.09} height={s * 0.09} fill="#f7c948" />
+          <rect x={s * 0.71} y={s * 0.41} width={s * 0.09} height={s * 0.09} fill="#f7c948" />
+          <circle cx={s * 0.59} cy={s * 0.64} r={s * 0.03} fill="#f7c948" />
+          <circle cx={s * 0.79} cy={s * 0.64} r={s * 0.03} fill="#f7c948" />
+        </>
+      )
+    case 'environmental-zone':
+      return (
+        <>
+          <rect x={s * 0.04} y={s * 0.18} width={s * 0.92} height={s * 0.64} rx={s * 0.04} fill="#fff" stroke="#15803d" strokeWidth={s * 0.035} />
+          <text x={center} y={s * 0.4} textAnchor="middle" fontSize={s * 0.11} fontWeight="800" fill="#15803d">Umwelt</text>
+          <text x={center} y={s * 0.53} textAnchor="middle" fontSize={s * 0.11} fontWeight="800" fill="#15803d">zone</text>
+          <circle cx={center} cy={s * 0.69} r={s * 0.06} fill="#15803d" />
+        </>
+      )
+    case 'parking-disc':
+      return (
+        <>
+          <rect x={s * 0.04} y={s * 0.04} width={s * 0.92} height={s * 0.92} rx={s * 0.08} fill="#1d4ed8" />
+          <text x={s * 0.36} y={s * 0.58} textAnchor="middle" fontSize={s * 0.48} fontWeight="800" fill="#fff">P</text>
+          <circle cx={s * 0.68} cy={s * 0.66} r={s * 0.15} fill="#fff" stroke="#1d4ed8" strokeWidth={s * 0.02} />
+          <circle cx={s * 0.68} cy={s * 0.66} r={s * 0.03} fill="#1d4ed8" />
+          <path d={`M ${s * 0.68} ${s * 0.66} L ${s * 0.68} ${s * 0.56} M ${s * 0.68} ${s * 0.66} L ${s * 0.76} ${s * 0.7}`} stroke="#1d4ed8" strokeWidth={s * 0.025} strokeLinecap="round" />
+        </>
+      )
+    case 'motor-road':
+      return (
+        <>
+          <rect x={s * 0.04} y={s * 0.04} width={s * 0.92} height={s * 0.92} rx={s * 0.08} fill="#1d4ed8" />
+          <rect x={s * 0.32} y={s * 0.44} width={s * 0.36} height={s * 0.24} rx={s * 0.06} fill="#fff" />
+          <path d={`M ${s * 0.38} ${s * 0.44} L ${s * 0.42} ${s * 0.34} L ${s * 0.58} ${s * 0.34} L ${s * 0.62} ${s * 0.44} Z`} fill="#fff" />
+          <rect x={s * 0.41} y={s * 0.37} width={s * 0.18} height={s * 0.06} fill="#1d4ed8" opacity="0.6" />
+          <circle cx={s * 0.39} cy={s * 0.69} r={s * 0.035} fill="#1d4ed8" />
+          <circle cx={s * 0.61} cy={s * 0.69} r={s * 0.035} fill="#1d4ed8" />
+        </>
+      )
+    case 'yield-to-oncoming':
+      return (
+        <>
+          <rect x={s * 0.18} y={s * 0.1} width={s * 0.64} height={s * 0.8} rx={s * 0.04} fill="#fff" stroke="#b9382a" strokeWidth={s * 0.06} />
+          <path d={`M ${s * 0.4} ${s * 0.72} L ${s * 0.4} ${s * 0.3} M ${s * 0.32} ${s * 0.42} L ${s * 0.4} ${s * 0.26} L ${s * 0.48} ${s * 0.42}`} fill="none" stroke="#1f2937" strokeWidth={s * 0.055} strokeLinecap="round" strokeLinejoin="round" />
+          <path d={`M ${s * 0.62} ${s * 0.28} L ${s * 0.62} ${s * 0.7} M ${s * 0.54} ${s * 0.58} L ${s * 0.62} ${s * 0.74} L ${s * 0.7} ${s * 0.58}`} fill="none" stroke="#b9382a" strokeWidth={s * 0.055} strokeLinecap="round" strokeLinejoin="round" />
+        </>
+      )
+    case 'end-minimum-speed':
+      return (
+        <>
+          <circle cx={center} cy={center} r={s * 0.46} fill="#1d4ed8" />
+          <text x={center} y={center + s * 0.12} textAnchor="middle" fontSize={s * 0.34} fontWeight="800" fill="#fff">30</text>
+          {[0.28, 0.42, 0.56].map((v) => (
+            <line key={v} x1={s * v} y1={s * 0.8} x2={s * (v + 0.16)} y2={s * 0.2} stroke="#cbd5e1" strokeWidth={s * 0.045} />
+          ))}
+        </>
+      )
+    case 'tunnel':
+      return (
+        <>
+          <rect x={s * 0.04} y={s * 0.04} width={s * 0.92} height={s * 0.92} rx={s * 0.08} fill="#1d4ed8" />
+          <path d={`M ${s * 0.2} ${s * 0.85} L ${s * 0.2} ${s * 0.5} Q ${s * 0.2} ${s * 0.25} ${s * 0.5} ${s * 0.25} Q ${s * 0.8} ${s * 0.25} ${s * 0.8} ${s * 0.5} L ${s * 0.8} ${s * 0.85} Z`} fill="#fff" />
+          <path d={`M ${s * 0.3} ${s * 0.85} L ${s * 0.3} ${s * 0.55} Q ${s * 0.3} ${s * 0.38} ${s * 0.5} ${s * 0.38} Q ${s * 0.7} ${s * 0.38} ${s * 0.7} ${s * 0.55} L ${s * 0.7} ${s * 0.85} Z`} fill="#1d4ed8" />
+          <line x1={s * 0.5} y1={s * 0.56} x2={s * 0.5} y2={s * 0.85} stroke="#fff" strokeWidth={s * 0.03} strokeDasharray={`${s * 0.04} ${s * 0.04}`} />
+        </>
+      )
+    case 'emergency-exit':
+      return (
+        <>
+          <rect x={s * 0.04} y={s * 0.04} width={s * 0.92} height={s * 0.92} rx={s * 0.08} fill="#15803d" />
+          <rect x={s * 0.58} y={s * 0.26} width={s * 0.2} height={s * 0.46} fill="#fff" />
+          <circle cx={s * 0.38} cy={s * 0.34} r={s * 0.045} fill="#fff" />
+          <path d={`M ${s * 0.38} ${s * 0.4} L ${s * 0.34} ${s * 0.6} M ${s * 0.36} ${s * 0.47} L ${s * 0.48} ${s * 0.52} M ${s * 0.34} ${s * 0.6} L ${s * 0.28} ${s * 0.76} M ${s * 0.34} ${s * 0.6} L ${s * 0.4} ${s * 0.76}`} fill="none" stroke="#fff" strokeWidth={s * 0.04} strokeLinecap="round" strokeLinejoin="round" />
+          <path d={`M ${s * 0.42} ${s * 0.7} L ${s * 0.58} ${s * 0.7} M ${s * 0.52} ${s * 0.64} L ${s * 0.6} ${s * 0.7} L ${s * 0.52} ${s * 0.76}`} fill="none" stroke="#fff" strokeWidth={s * 0.035} strokeLinecap="round" strokeLinejoin="round" />
+        </>
+      )
+    case 'weight-limit':
+    case 'length-limit':
+      return (
+        <>
+          <circle cx={center} cy={center} r={s * 0.46} fill="#fff" stroke={C.hazard} strokeWidth={s * 0.07} />
+          <rect x={s * 0.22} y={s * 0.38} width={s * 0.3} height={s * 0.2} rx={s * 0.02} fill="#1f2937" />
+          <rect x={s * 0.55} y={s * 0.41} width={s * 0.13} height={s * 0.17} rx={s * 0.02} fill="#1f2937" />
+          <circle cx={s * 0.3} cy={s * 0.6} r={s * 0.04} fill="#1f2937" />
+          <circle cx={s * 0.45} cy={s * 0.6} r={s * 0.04} fill="#1f2937" />
+          <circle cx={s * 0.62} cy={s * 0.6} r={s * 0.035} fill="#1f2937" />
+          <text x={center} y={s * 0.8} textAnchor="middle" fontSize={s * 0.13} fontWeight="800" fill="#1f2937">
+            {type === 'weight-limit' ? '7,5 t' : '10 m'}
+          </text>
+        </>
+      )
+    case 'height-limit':
+      return (
+        <>
+          <circle cx={center} cy={center} r={s * 0.46} fill="#fff" stroke={C.hazard} strokeWidth={s * 0.07} />
+          <path d={`M ${s * 0.22} ${s * 0.35} L ${s * 0.78} ${s * 0.35} M ${s * 0.3} ${s * 0.29} L ${s * 0.2} ${s * 0.35} L ${s * 0.3} ${s * 0.41} M ${s * 0.7} ${s * 0.29} L ${s * 0.8} ${s * 0.35} L ${s * 0.7} ${s * 0.41}`} fill="none" stroke="#1f2937" strokeWidth={s * 0.05} strokeLinecap="round" strokeLinejoin="round" />
+          <text x={center} y={s * 0.64} textAnchor="middle" fontSize={s * 0.22} fontWeight="800" fill="#1f2937">3,5 m</text>
+        </>
+      )
+    case 'first-aid':
+      return (
+        <>
+          <rect x={s * 0.04} y={s * 0.04} width={s * 0.92} height={s * 0.92} rx={s * 0.08} fill="#1d4ed8" />
+          <rect x={s * 0.42} y={s * 0.24} width={s * 0.16} height={s * 0.52} fill="#fff" />
+          <rect x={s * 0.24} y={s * 0.42} width={s * 0.52} height={s * 0.16} fill="#fff" />
+        </>
+      )
+    case 'hospital':
+      return (
+        <>
+          <rect x={s * 0.04} y={s * 0.04} width={s * 0.92} height={s * 0.92} rx={s * 0.08} fill="#1d4ed8" />
+          <text x={center} y={center + s * 0.18} textAnchor="middle" fontSize={s * 0.62} fontWeight="800" fill="#fff">H</text>
+        </>
+      )
+    case 'fuel':
+      return (
+        <>
+          <rect x={s * 0.04} y={s * 0.04} width={s * 0.92} height={s * 0.92} rx={s * 0.08} fill="#1d4ed8" />
+          <rect x={s * 0.28} y={s * 0.28} width={s * 0.24} height={s * 0.46} rx={s * 0.04} fill="#fff" />
+          <rect x={s * 0.32} y={s * 0.33} width={s * 0.16} height={s * 0.13} fill="#1d4ed8" />
+          <path d={`M ${s * 0.52} ${s * 0.4} C ${s * 0.64} ${s * 0.4} ${s * 0.64} ${s * 0.62} ${s * 0.6} ${s * 0.72} M ${s * 0.54} ${s * 0.74} L ${s * 0.66} ${s * 0.74}`} fill="none" stroke="#fff" strokeWidth={s * 0.045} strokeLinecap="round" />
+        </>
+      )
+    case 'emergency-phone':
+      return (
+        <>
+          <rect x={s * 0.04} y={s * 0.04} width={s * 0.92} height={s * 0.92} rx={s * 0.08} fill="#1d4ed8" />
+          <rect x={s * 0.3} y={s * 0.38} width={s * 0.4} height={s * 0.14} rx={s * 0.07} fill="#fff" transform={`rotate(-35 ${center} ${center})`} />
+          <circle cx={s * 0.32} cy={s * 0.6} r={s * 0.06} fill="#fff" />
+          <circle cx={s * 0.27} cy={s * 0.36} r={s * 0.06} fill="#fff" />
+        </>
+      )
     default:
       return <circle cx={center} cy={center} r={s * 0.4} fill={C.other} />
   }
