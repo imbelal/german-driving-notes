@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --color-ink: #16283d;
+  --color-ink-soft: #4a5c72;
+  --color-paper: #f7f6f2;
+  --color-card: #ffffff;
+  --color-line: #e4e0d6;
+  --color-navy: #17334f;
+  --color-navy-deep: #0f2438;
+  --color-amber: #f2b705;
+  --color-amber-soft: #fdf3cd;
+  --color-forest: #1c7a52;
+  --color-forest-soft: #e3f3ea;
+  --color-brick: #b9382a;
+  --color-brick-soft: #fbe8e5;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: #f2b70566;
+}
+
+:focus-visible {
+  outline: 2px solid #17334f;
+  outline-offset: 2px;
+}
+
+@media print {
+  aside,
+  header,
+  .no-print {
+    display: none !important;
+  }
+
+  main {
+    padding: 0 !important;
+  }
+
+  body {
+    background: white;
+  }
+
+  .print-card {
+    break-inside: avoid;
+    border: 1px solid #ddd !important;
+    box-shadow: none !important;
+  }
+}
