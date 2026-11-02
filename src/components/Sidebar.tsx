@@ -1,6 +1,7 @@
 import {
   AlertTriangle,
   BookOpenCheck,
+  Brain,
   ChevronRight,
   Home,
   ListChecks,
@@ -169,6 +170,16 @@ export function Sidebar({ open, onClose }: { open: boolean; onClose: () => void 
             Reference
           </p>
           <div className="space-y-0.5">
+            <NavLink
+              to="/quiz"
+              onClick={onClose}
+              className={({ isActive }) =>
+                `${linkBase} ${isActive ? 'bg-navy text-white' : 'text-ink-soft hover:bg-paper hover:text-ink'}`
+              }
+            >
+              <Brain className="h-4 w-4" />
+              Quiz
+            </NavLink>
             <NavLink
               to="/mistakes"
               onClick={onClose}

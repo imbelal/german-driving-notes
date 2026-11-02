@@ -1,6 +1,7 @@
 import {
   AlertTriangle,
   ArrowRight,
+  Brain,
   BookOpen,
   CheckCircle2,
   Compass,
@@ -165,6 +166,27 @@ export function Home() {
             <ScenarioCard key={scenario.id} scenario={scenario} />
           ))}
         </div>
+      </section>
+
+      <section className="flex flex-col items-start justify-between gap-4 rounded-2xl border border-line bg-card p-6 sm:flex-row sm:items-center">
+        <div className="flex items-start gap-3">
+          <span className="mt-0.5 grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-navy/8 text-navy">
+            <Brain className="h-4.5 w-4.5" />
+          </span>
+          <div>
+            <h3 className="text-sm font-bold text-ink">Test yourself with a quick quiz</h3>
+            <p className="mt-1 text-xs leading-relaxed text-ink-soft">
+              Ten questions, instant feedback and links back to the exact lesson or sign.
+            </p>
+          </div>
+        </div>
+        <Link
+          to="/quiz"
+          className="inline-flex shrink-0 items-center gap-2 rounded-xl bg-amber px-4 py-2.5 text-xs font-bold text-navy"
+        >
+          Start quiz
+          <ArrowRight className="h-3.5 w-3.5" />
+        </Link>
       </section>
 
       <section className="flex flex-col items-start justify-between gap-4 rounded-2xl border border-brick/20 bg-brick-soft/50 p-6 sm:flex-row sm:items-center">
