@@ -47,7 +47,7 @@ export interface SignEntry {
   german: string
   meaning: string
   key: string
-  group: 'Priority' | 'Prohibition' | 'Speed' | 'Information' | 'Warning'
+  group: 'Priority' | 'Prohibition' | 'Mandatory' | 'Speed' | 'Information' | 'Warning'
 }
 
 export interface Checklist {

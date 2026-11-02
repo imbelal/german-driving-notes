@@ -597,6 +597,7 @@ function renderSign(type: string, s: number, _bg: { x: number; y: number }) {
     case 'speed-60':
     case 'speed-80':
     case 'speed-100':
+    case 'speed-130':
       return (
         <>
           <circle cx={center} cy={center} r={s * 0.46} fill="#fff" stroke={C.hazard} strokeWidth={s * 0.09} />
@@ -606,6 +607,14 @@ function renderSign(type: string, s: number, _bg: { x: number; y: number }) {
         </>
       )
     case 'end-speed':
+      return (
+        <>
+          <circle cx={center} cy={center} r={s * 0.46} fill="#fff" stroke="#94a3b8" strokeWidth={s * 0.04} />
+          <text x={center} y={center + s * 0.11} textAnchor="middle" fontSize={s * 0.34} fontWeight="800" fill="#94a3b8">50</text>
+          <line x1={s * 0.2} y1={s * 0.8} x2={s * 0.8} y2={s * 0.2} stroke="#1f2937" strokeWidth={s * 0.055} />
+        </>
+      )
+    case 'end-restrictions':
       return (
         <>
           <circle cx={center} cy={center} r={s * 0.46} fill="#fff" stroke="#94a3b8" strokeWidth={s * 0.04} />
@@ -673,6 +682,159 @@ function renderSign(type: string, s: number, _bg: { x: number; y: number }) {
           <circle cx={center} cy={s * 0.53} r={s * 0.045} fill={C.amber} />
           <circle cx={center} cy={s * 0.67} r={s * 0.045} fill="#22c55e" />
         </>
+      )
+    case 'city-limit':
+      return (
+        <>
+          <rect x={s * 0.03} y={s * 0.13} width={s * 0.94} height={s * 0.74} rx={s * 0.02} fill="#f7c948" stroke="#1f2937" strokeWidth={s * 0.025} />
+          <text x={center} y={s * 0.43} textAnchor="middle" fontSize={s * 0.13} fontWeight="800" fill="#1f2937">Musterstadt</text>
+        </>
+      )
+    case 'end-city':
+      return (
+        <>
+          <rect x={s * 0.03} y={s * 0.13} width={s * 0.94} height={s * 0.74} rx={s * 0.02} fill="#f7c948" stroke="#1f2937" strokeWidth={s * 0.025} />
+          <text x={center} y={s * 0.4} textAnchor="middle" fontSize={s * 0.13} fontWeight="800" fill="#1f2937">Musterstadt</text>
+          <line x1={s * 0.1} y1={s * 0.8} x2={s * 0.9} y2={s * 0.22} stroke={C.hazard} strokeWidth={s * 0.075} />
+        </>
+      )
+    case 'minimum-speed':
+      return (
+        <>
+          <circle cx={center} cy={center} r={s * 0.46} fill="#1d4ed8" />
+          <text x={center} y={center + s * 0.12} textAnchor="middle" fontSize={s * 0.36} fontWeight="800" fill="#fff">30</text>
+        </>
+      )
+    case 'no-parking':
+      return (
+        <>
+          <circle cx={center} cy={center} r={s * 0.46} fill="#1d4ed8" stroke={C.hazard} strokeWidth={s * 0.08} />
+          <line x1={s * 0.26} y1={s * 0.26} x2={s * 0.74} y2={s * 0.74} stroke={C.hazard} strokeWidth={s * 0.08} />
+        </>
+      )
+    case 'no-u-turn':
+      return (
+        <>
+          <circle cx={center} cy={center} r={s * 0.46} fill="#fff" stroke={C.hazard} strokeWidth={s * 0.08} />
+          <path d={`M ${s * 0.63} ${s * 0.7} L ${s * 0.63} ${s * 0.43} Q ${s * 0.63} ${s * 0.29} ${s * 0.5} ${s * 0.29} Q ${s * 0.37} ${s * 0.29} ${s * 0.37} ${s * 0.43} L ${s * 0.37} ${s * 0.58}`} fill="none" stroke="#1f2937" strokeWidth={s * 0.065} strokeLinecap="round" />
+          <path d={`M ${s * 0.31} ${s * 0.54} L ${s * 0.37} ${s * 0.64} L ${s * 0.43} ${s * 0.54}`} fill="none" stroke="#1f2937" strokeWidth={s * 0.055} strokeLinecap="round" strokeLinejoin="round" />
+          <line x1={s * 0.22} y1={s * 0.8} x2={s * 0.78} y2={s * 0.2} stroke={C.hazard} strokeWidth={s * 0.07} />
+        </>
+      )
+    case 'end-no-overtaking':
+      return (
+        <>
+          <circle cx={center} cy={center} r={s * 0.46} fill="#fff" stroke="#94a3b8" strokeWidth={s * 0.04} />
+          <rect x={s * 0.22} y={s * 0.3} width={s * 0.17} height={s * 0.4} rx={s * 0.04} fill="#94a3b8" />
+          <rect x={s * 0.6} y={s * 0.3} width={s * 0.17} height={s * 0.4} rx={s * 0.04} fill="#94a3b8" />
+          {[0.26, 0.42, 0.58].map((v) => (
+            <line key={v} x1={s * v} y1={s * 0.8} x2={s * (v + 0.16)} y2={s * 0.2} stroke="#94a3b8" strokeWidth={s * 0.045} />
+          ))}
+        </>
+      )
+    case 'mandatory-left':
+    case 'mandatory-right':
+    case 'mandatory-straight':
+    case 'keep-right':
+      return (
+        <>
+          <circle cx={center} cy={center} r={s * 0.46} fill="#1d4ed8" />
+          {type === 'mandatory-left' && (
+            <path d={`M ${s * 0.68} ${center} L ${s * 0.32} ${center} M ${s * 0.45} ${center - s * 0.1} L ${s * 0.29} ${center} L ${s * 0.45} ${center + s * 0.1}`} fill="none" stroke="#fff" strokeWidth={s * 0.08} strokeLinecap="round" strokeLinejoin="round" />
+          )}
+          {type === 'mandatory-right' && (
+            <path d={`M ${s * 0.32} ${center} L ${s * 0.68} ${center} M ${s * 0.55} ${center - s * 0.1} L ${s * 0.71} ${center} L ${s * 0.55} ${center + s * 0.1}`} fill="none" stroke="#fff" strokeWidth={s * 0.08} strokeLinecap="round" strokeLinejoin="round" />
+          )}
+          {type === 'mandatory-straight' && (
+            <path d={`M ${center} ${s * 0.7} L ${center} ${s * 0.3} M ${center - s * 0.1} ${s * 0.43} L ${center} ${s * 0.27} L ${center + s * 0.1} ${s * 0.43}`} fill="none" stroke="#fff" strokeWidth={s * 0.08} strokeLinecap="round" strokeLinejoin="round" />
+          )}
+          {type === 'keep-right' && (
+            <path d={`M ${s * 0.37} ${s * 0.37} L ${s * 0.64} ${s * 0.64} M ${s * 0.47} ${s * 0.65} L ${s * 0.67} ${s * 0.67} L ${s * 0.65} ${s * 0.47}`} fill="none" stroke="#fff" strokeWidth={s * 0.08} strokeLinecap="round" strokeLinejoin="round" />
+          )}
+        </>
+      )
+    case 'priority-over-oncoming':
+      return (
+        <>
+          <rect x={s * 0.06} y={s * 0.06} width={s * 0.88} height={s * 0.88} rx={s * 0.04} fill="#1d4ed8" />
+          <path d={`M ${s * 0.4} ${s * 0.8} L ${s * 0.4} ${s * 0.25} M ${s * 0.31} ${s * 0.37} L ${s * 0.4} ${s * 0.21} L ${s * 0.49} ${s * 0.37}`} fill="none" stroke="#fff" strokeWidth={s * 0.075} strokeLinecap="round" strokeLinejoin="round" />
+          <path d={`M ${s * 0.62} ${s * 0.2} L ${s * 0.62} ${s * 0.75} M ${s * 0.53} ${s * 0.63} L ${s * 0.62} ${s * 0.79} L ${s * 0.71} ${s * 0.63}`} fill="none" stroke="#ef4444" strokeWidth={s * 0.075} strokeLinecap="round" strokeLinejoin="round" />
+        </>
+      )
+    case 'roadworks':
+      return (
+        <>
+          <path d={`M ${center} ${s * 0.05} L ${s * 0.96} ${s * 0.9} L ${s * 0.04} ${s * 0.9} Z`} fill="#fff" stroke={C.hazard} strokeWidth={s * 0.09} strokeLinejoin="round" />
+          <circle cx={s * 0.45} cy={s * 0.43} r={s * 0.045} fill="#1f2937" />
+          <path d={`M ${s * 0.45} ${s * 0.48} L ${s * 0.43} ${s * 0.62} M ${s * 0.45} ${s * 0.53} L ${s * 0.58} ${s * 0.57} M ${s * 0.43} ${s * 0.62} L ${s * 0.37} ${s * 0.78} M ${s * 0.43} ${s * 0.62} L ${s * 0.5} ${s * 0.78}`} fill="none" stroke="#1f2937" strokeWidth={s * 0.04} strokeLinecap="round" />
+          <path d={`M ${s * 0.55} ${s * 0.66} L ${s * 0.69} ${s * 0.78} M ${s * 0.6} ${s * 0.75} L ${s * 0.73} ${s * 0.75}`} fill="none" stroke="#1f2937" strokeWidth={s * 0.045} strokeLinecap="round" />
+        </>
+      )
+    case 'wild-animals':
+      return (
+        <>
+          <path d={`M ${center} ${s * 0.05} L ${s * 0.96} ${s * 0.9} L ${s * 0.04} ${s * 0.9} Z`} fill="#fff" stroke={C.hazard} strokeWidth={s * 0.09} strokeLinejoin="round" />
+          <ellipse cx={s * 0.5} cy={s * 0.62} rx={s * 0.16} ry={s * 0.075} fill="#1f2937" />
+          <circle cx={s * 0.67} cy={s * 0.48} r={s * 0.05} fill="#1f2937" />
+          <path d={`M ${s * 0.66} ${s * 0.45} L ${s * 0.62} ${s * 0.34} M ${s * 0.66} ${s * 0.45} L ${s * 0.7} ${s * 0.34} M ${s * 0.69} ${s * 0.46} L ${s * 0.74} ${s * 0.38}`} fill="none" stroke="#1f2937" strokeWidth={s * 0.035} strokeLinecap="round" />
+          <path d={`M ${s * 0.4} ${s * 0.68} L ${s * 0.37} ${s * 0.82} M ${s * 0.46} ${s * 0.69} L ${s * 0.46} ${s * 0.82} M ${s * 0.55} ${s * 0.69} L ${s * 0.57} ${s * 0.82} M ${s * 0.61} ${s * 0.68} L ${s * 0.65} ${s * 0.82}`} fill="none" stroke="#1f2937" strokeWidth={s * 0.04} strokeLinecap="round" />
+        </>
+      )
+    case 'slippery-road':
+      return (
+        <>
+          <path d={`M ${center} ${s * 0.05} L ${s * 0.96} ${s * 0.9} L ${s * 0.04} ${s * 0.9} Z`} fill="#fff" stroke={C.hazard} strokeWidth={s * 0.09} strokeLinejoin="round" />
+          <rect x={s * 0.42} y={s * 0.48} width={s * 0.18} height={s * 0.26} rx={s * 0.04} fill="#1f2937" />
+          <path d={`M ${s * 0.28} ${s * 0.7} Q ${s * 0.34} ${s * 0.62} ${s * 0.4} ${s * 0.7} M ${s * 0.62} ${s * 0.52} Q ${s * 0.68} ${s * 0.44} ${s * 0.74} ${s * 0.52}`} fill="none" stroke="#1f2937" strokeWidth={s * 0.04} strokeLinecap="round" />
+          <path d={`M ${s * 0.33} ${s * 0.78} Q ${s * 0.4} ${s * 0.7} ${s * 0.47} ${s * 0.78}`} fill="none" stroke="#1f2937" strokeWidth={s * 0.035} strokeLinecap="round" />
+        </>
+      )
+    case 'traffic-jam':
+      return (
+        <>
+          <path d={`M ${center} ${s * 0.05} L ${s * 0.96} ${s * 0.9} L ${s * 0.04} ${s * 0.9} Z`} fill="#fff" stroke={C.hazard} strokeWidth={s * 0.09} strokeLinejoin="round" />
+          {[0.47, 0.61, 0.75].map((y) => (
+            <g key={y}>
+              <rect x={s * 0.42} y={s * y} width={s * 0.16} height={s * 0.1} rx={s * 0.02} fill="#1f2937" />
+              <rect x={s * 0.45} y={s * (y + 0.015)} width={s * 0.1} height={s * 0.035} rx={s * 0.01} fill="#fff" opacity="0.85" />
+            </g>
+          ))}
+        </>
+      )
+    case 'two-way-traffic':
+      return (
+        <>
+          <path d={`M ${center} ${s * 0.05} L ${s * 0.96} ${s * 0.9} L ${s * 0.04} ${s * 0.9} Z`} fill="#fff" stroke={C.hazard} strokeWidth={s * 0.09} strokeLinejoin="round" />
+          <path d={`M ${s * 0.4} ${s * 0.76} L ${s * 0.4} ${s * 0.4} M ${s * 0.33} ${s * 0.5} L ${s * 0.4} ${s * 0.36} L ${s * 0.47} ${s * 0.5} M ${s * 0.6} ${s * 0.34} L ${s * 0.6} ${s * 0.7} M ${s * 0.53} ${s * 0.6} L ${s * 0.6} ${s * 0.74} L ${s * 0.67} ${s * 0.6}`} fill="none" stroke="#1f2937" strokeWidth={s * 0.055} strokeLinecap="round" strokeLinejoin="round" />
+        </>
+      )
+    case 'bundesstrasse':
+      return (
+        <>
+          <rect x={s * 0.12} y={s * 0.14} width={s * 0.76} height={s * 0.72} rx={s * 0.08} fill="#f7c948" stroke="#1f2937" strokeWidth={s * 0.04} />
+          <text x={s * 0.4} y={s * 0.58} textAnchor="middle" fontSize={s * 0.3} fontWeight="800" fill="#1f2937">B</text>
+          <text x={s * 0.62} y={s * 0.58} textAnchor="middle" fontSize={s * 0.26} fontWeight="700" fill="#1f2937">10</text>
+        </>
+      )
+    case 'autobahn-end':
+      return (
+        <>
+          <rect x={s * 0.04} y={s * 0.04} width={s * 0.92} height={s * 0.92} rx={s * 0.08} fill="#1d4ed8" />
+          <g fill="none" stroke="#fff" strokeWidth={s * 0.07} strokeLinecap="round">
+            <path d={`M ${s * 0.2} ${s * 0.84} C ${s * 0.34} ${s * 0.55} ${s * 0.36} ${s * 0.4} ${s * 0.5} ${s * 0.16}`} />
+            <path d={`M ${s * 0.8} ${s * 0.84} C ${s * 0.66} ${s * 0.55} ${s * 0.64} ${s * 0.4} ${s * 0.5} ${s * 0.16}`} />
+            <path d={`M ${s * 0.5} ${s * 0.28} L ${s * 0.5} ${s * 0.66}`} />
+          </g>
+          <rect x={s * 0.3} y={s * 0.46} width={s * 0.4} height={s * 0.06} fill="#fff" />
+          <line x1={s * 0.18} y1={s * 0.82} x2={s * 0.82} y2={s * 0.18} stroke={C.hazard} strokeWidth={s * 0.075} />
+        </>
+      )
+    case 'railway-cross':
+      return (
+        <g transform={`translate(${center} ${center}) rotate(45)`}>
+          <rect x={-s * 0.08} y={-s * 0.46} width={s * 0.16} height={s * 0.92} fill="#fff" stroke={C.hazard} strokeWidth={s * 0.05} />
+          <rect x={-s * 0.46} y={-s * 0.08} width={s * 0.92} height={s * 0.16} fill="#fff" stroke={C.hazard} strokeWidth={s * 0.05} />
+        </g>
       )
     default:
       return <circle cx={center} cy={center} r={s * 0.4} fill={C.other} />

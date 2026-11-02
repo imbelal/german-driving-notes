@@ -163,11 +163,219 @@ export const signs: SignEntry[] = [
     key: 'traffic-light',
     group: 'Warning',
   },
+  {
+    id: 'city-limit',
+    name: 'Entering a built-up area',
+    german: 'Ortstafel (Zeichen 310)',
+    meaning:
+      'The yellow town sign marks the start of a built-up area. Inside it the default limit is 50 km/h and tighter parking rules apply.',
+    key: 'city-limit',
+    group: 'Information',
+  },
+  {
+    id: 'end-city',
+    name: 'Leaving a built-up area',
+    german: 'Ortstafel, Rückseite (Zeichen 311)',
+    meaning:
+      'The crossed-out town name marks the end of the built-up area. Outside it the default limit for cars is 100 km/h unless signs show otherwise.',
+    key: 'end-city',
+    group: 'Information',
+  },
+  {
+    id: 'speed-80',
+    name: 'Speed limit 80',
+    german: 'Zulässige Höchstgeschwindigkeit 80',
+    meaning:
+      'Maximum speed is 80 km/h. The limit lasts until it is cancelled or a different limit appears.',
+    key: 'speed-80',
+    group: 'Speed',
+  },
+  {
+    id: 'speed-100',
+    name: 'Speed limit 100',
+    german: 'Zulässige Höchstgeschwindigkeit 100',
+    meaning:
+      'Maximum speed is 100 km/h. This is also the default outside built-up areas for cars when no lower limit is posted.',
+    key: 'speed-100',
+    group: 'Speed',
+  },
+  {
+    id: 'speed-130',
+    name: 'Speed limit 130',
+    german: 'Zulässige Höchstgeschwindigkeit 130',
+    meaning:
+      'Maximum speed is 130 km/h. On derestricted Autobahn sections 130 km/h is only the recommended speed, not a legal maximum.',
+    key: 'speed-130',
+    group: 'Speed',
+  },
+  {
+    id: 'minimum-speed',
+    name: 'Minimum speed',
+    german: 'Vorgeschriebene Mindestgeschwindigkeit',
+    meaning:
+      'You must drive at least at the speed shown. Slow vehicles are not allowed on this stretch.',
+    key: 'minimum-speed',
+    group: 'Speed',
+  },
+  {
+    id: 'end-restrictions',
+    name: 'End of all route restrictions',
+    german: 'Ende sämtlicher Streckenverbote',
+    meaning:
+      'All posted speed limits and overtaking bans on this stretch end. The general limits for the road type apply again.',
+    key: 'end-restrictions',
+    group: 'Speed',
+  },
+  {
+    id: 'no-parking',
+    name: 'No parking',
+    german: 'Eingeschränktes Haltverbot',
+    meaning:
+      'You may stop briefly, for example to let someone in or out, but you may not park. Blue circle with one red diagonal.',
+    key: 'no-parking',
+    group: 'Prohibition',
+  },
+  {
+    id: 'no-u-turn',
+    name: 'No U-turn',
+    german: 'Verbot des Wendens',
+    meaning:
+      'Turning around is prohibited here. Continue to a place where turning is allowed.',
+    key: 'no-u-turn',
+    group: 'Prohibition',
+  },
+  {
+    id: 'end-no-overtaking',
+    name: 'End of no-overtaking',
+    german: 'Ende des Überholverbots',
+    meaning:
+      'The overtaking ban ends. Overtake only when the road ahead is clear and it is safe to do so.',
+    key: 'end-no-overtaking',
+    group: 'Prohibition',
+  },
+  {
+    id: 'mandatory-left',
+    name: 'Turn left only',
+    german: 'Vorgeschriebene Fahrtrichtung links',
+    meaning:
+      'You must turn left here. The blue circle gives a mandatory direction.',
+    key: 'mandatory-left',
+    group: 'Mandatory',
+  },
+  {
+    id: 'mandatory-right',
+    name: 'Turn right only',
+    german: 'Vorgeschriebene Fahrtrichtung rechts',
+    meaning:
+      'You must turn right here. The blue circle gives a mandatory direction.',
+    key: 'mandatory-right',
+    group: 'Mandatory',
+  },
+  {
+    id: 'mandatory-straight',
+    name: 'Straight ahead only',
+    german: 'Vorgeschriebene Fahrtrichtung geradeaus',
+    meaning:
+      'You must continue straight ahead here. Turning is not allowed.',
+    key: 'mandatory-straight',
+    group: 'Mandatory',
+  },
+  {
+    id: 'keep-right',
+    name: 'Pass on the right',
+    german: 'Vorgeschriebene Vorbeifahrt rechts',
+    meaning:
+      'Pass the obstacle or traffic island on the right-hand side.',
+    key: 'keep-right',
+    group: 'Mandatory',
+  },
+  {
+    id: 'priority-over-oncoming',
+    name: 'Priority over oncoming traffic',
+    german: 'Vorrang vor dem Gegenverkehr',
+    meaning:
+      'You have priority through the narrow section. Oncoming traffic must wait for you.',
+    key: 'priority-over-oncoming',
+    group: 'Priority',
+  },
+  {
+    id: 'roadworks',
+    name: 'Roadworks',
+    german: 'Arbeitsstelle',
+    meaning:
+      'Roadworks ahead. Slow down, watch for workers and changed lane guidance, and expect temporary signs.',
+    key: 'roadworks',
+    group: 'Warning',
+  },
+  {
+    id: 'wild-animals',
+    name: 'Wild animals',
+    german: 'Wildwechsel',
+    meaning:
+      'Wild animals may cross. Slow down, watch the verges and be ready to stop, especially at dawn and dusk.',
+    key: 'wild-animals',
+    group: 'Warning',
+  },
+  {
+    id: 'slippery-road',
+    name: 'Slippery road',
+    german: 'Schleudergefahr',
+    meaning:
+      'The road can be slippery, especially when wet. Reduce speed and avoid sudden steering or braking.',
+    key: 'slippery-road',
+    group: 'Warning',
+  },
+  {
+    id: 'traffic-jam',
+    name: 'Traffic jam',
+    german: 'Stau',
+    meaning:
+      'Traffic may be queuing ahead. Slow down early, keep your distance and watch for the Rettungsgasse on motorways.',
+    key: 'traffic-jam',
+    group: 'Warning',
+  },
+  {
+    id: 'two-way-traffic',
+    name: 'Two-way traffic',
+    german: 'Gegenverkehr',
+    meaning:
+      'Oncoming traffic is present again, for example after roadworks. Keep right and expect vehicles in the opposite lane.',
+    key: 'two-way-traffic',
+    group: 'Warning',
+  },
+  {
+    id: 'bundesstrasse',
+    name: 'Federal road',
+    german: 'Bundesstraße',
+    meaning:
+      'A yellow route sign for a Bundesstraße. It helps with navigation; it does not change the speed limit by itself.',
+    key: 'bundesstrasse',
+    group: 'Information',
+  },
+  {
+    id: 'autobahn-end',
+    name: 'End of Autobahn',
+    german: 'Ende der Autobahn',
+    meaning:
+      'Autobahn rules stop here. Expect a different road type, lower speeds and other traffic such as cyclists or pedestrians.',
+    key: 'autobahn-end',
+    group: 'Information',
+  },
+  {
+    id: 'railway-cross',
+    name: 'Railway crossing',
+    german: 'Andreaskreuz',
+    meaning:
+      'Rail traffic has priority. Stop if a train is approaching, and never enter the crossing unless you can clear it.',
+    key: 'railway-cross',
+    group: 'Warning',
+  },
 ]
 
 export const signGroups = [
   'Priority',
   'Prohibition',
+  'Mandatory',
   'Speed',
   'Information',
   'Warning',
