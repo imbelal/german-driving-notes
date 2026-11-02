@@ -4,6 +4,7 @@ import {
   Brain,
   ChevronRight,
   Home,
+  Languages,
   ListChecks,
   Scale,
   Search,
@@ -189,6 +190,16 @@ export function Sidebar({ open, onClose }: { open: boolean; onClose: () => void 
             >
               <AlertTriangle className="h-4 w-4" />
               Top mistakes
+            </NavLink>
+            <NavLink
+              to="/vocabulary"
+              onClick={onClose}
+              className={({ isActive }) =>
+                `${linkBase} ${isActive ? 'bg-navy text-white' : 'text-ink-soft hover:bg-paper hover:text-ink'}`
+              }
+            >
+              <Languages className="h-4 w-4" />
+              Exam vocabulary
             </NavLink>
             <NavLink
               to="/checklists"

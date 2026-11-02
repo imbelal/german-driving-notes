@@ -9,6 +9,7 @@ import { NotFound } from './pages/NotFound'
 import { Rules } from './pages/Rules'
 import { ScenarioPage } from './pages/ScenarioPage'
 import { Signs } from './pages/Signs'
+import { Vocabulary } from './pages/Vocabulary'
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="checklists" element={<Checklists />} />
         <Route path="signs" element={<Signs />} />
         <Route path="rules" element={<Rules />} />
+        <Route path="vocabulary" element={<Vocabulary />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
