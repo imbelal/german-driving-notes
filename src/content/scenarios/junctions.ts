@@ -488,6 +488,62 @@ export const junctionScenarios: Scenario[] = [
     tags: ['left turn', 'one-way', 'Einbahnstraße', 'junction'],
   },
   {
+    id: 'left-turn-island',
+    category: 'left-turns',
+    title: 'Left turn with a traffic island',
+    germanTerm: 'Linksabbiegen mit Verkehrsinsel',
+    summary:
+      'A raised traffic island can separate the left-turn lane from oncoming traffic and make the junction feel protected. It does not give you priority: you must still yield to oncoming vehicles, cyclists and pedestrians.',
+    keyRule:
+      'The island separates traffic — it does not grant right of way. Wait for oncoming traffic before turning, and never drive over a raised island.',
+    diagram: 'left-turn-island',
+    difficulty: 3,
+    steps: [
+      {
+        title: 'Read the layout early',
+        detail:
+          'Identify the marked left-turn lane, the island and the stop line. Use the lane marked for left turns; do not move onto the oncoming side just because an island separates the directions.',
+      },
+      {
+        title: 'Position and signal',
+        detail:
+          'Move close to the island without touching or mounting it, indicate left and do a left shoulder check. Keep enough space so your car does not straddle the lane marking.',
+      },
+      {
+        title: 'Wait where the junction stays clear',
+        detail:
+          'If oncoming traffic is present, wait behind the island or stop line. The island is not a waiting area for cars, and you must not block a pedestrian crossing or the oncoming lane while waiting.',
+      },
+      {
+        title: 'Yield and turn',
+        detail:
+          'Let oncoming vehicles, cyclists and pedestrians pass. When there is a safe gap, turn into the nearest lane on the correct side of any island. Do not cut across the island or swing into the far lane.',
+      },
+      {
+        title: 'Check the exit',
+        detail:
+          'Look for pedestrians crossing the road you enter and for cyclists coming from behind on your left. Complete the turn smoothly and cancel the indicator.',
+      },
+    ],
+    mistakes: [
+      'Assuming the island gives you priority over oncoming traffic.',
+      'Driving over or stopping on the raised island.',
+      'Positioning in the oncoming lane instead of the marked left-turn lane.',
+      'Cutting the corner and turning into the wrong side of the road you enter.',
+    ],
+    examTips: [
+      'The examiner still expects a clear look for oncoming traffic, even when the left-turn lane looks protected by an island.',
+      'Treat the island as a hard obstacle, not as a refuge. If you cannot see past it, creep forward carefully without blocking the junction.',
+      'If you are unsure whether the gap is safe, wait. Hesitation is better than forcing a turn across oncoming traffic.',
+    ],
+    rules: [
+      'Left turners must yield to oncoming traffic even when their lane is separated by a traffic island or road marking (StVO §9).',
+      'Raised traffic islands must not be driven over.',
+      'Turn into the nearest lane in your direction and keep crossings clear.',
+    ],
+    tags: ['left turn', 'traffic island', 'Verkehrsinsel', 'oncoming traffic', 'priority'],
+  },
+  {
     id: 'left-turn-multilane',
     category: 'left-turns',
     title: 'Left turns from multiple lanes',

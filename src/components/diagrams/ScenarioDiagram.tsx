@@ -9,6 +9,7 @@ import {
 import {
   BlockedJunctionDiagram,
   LeftTurnDiagram,
+  LeftTurnIslandDiagram,
   LeftTurnLightDiagram,
   LeftTurnMultilaneDiagram,
   LeftTurnOneWayDiagram,
@@ -65,6 +66,7 @@ const diagrams: Record<string, ComponentType> = {
   'left-turn': LeftTurnDiagram,
   'left-turn-light': LeftTurnLightDiagram,
   'left-turn-oneway': LeftTurnOneWayDiagram,
+  'left-turn-island': LeftTurnIslandDiagram,
   'left-turn-multilane': LeftTurnMultilaneDiagram,
   'right-turn': RightTurnDiagram,
   'right-cyclist': RightCyclistDiagram,

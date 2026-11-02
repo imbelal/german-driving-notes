@@ -266,6 +266,62 @@ export function LeftTurnMultilaneDiagram() {
   )
 }
 
+
+export function LeftTurnIslandDiagram() {
+  return (
+    <RoadCanvas
+      title="Left turn at a junction with a raised traffic island separating the left-turn lane"
+      label="Left turn with a traffic island diagram"
+    >
+      <rect x="0" y="0" width="800" height="560" fill={C.bg} />
+      <rect x="220" y="0" width="360" height="560" fill={C.sidewalk} />
+      <rect x="0" y="100" width="800" height="360" fill={C.sidewalk} />
+      <rect x="240" y="0" width="320" height="560" fill={C.asphalt} />
+      <rect x="0" y="120" width="800" height="320" fill={C.asphalt} />
+      <rect x="240" y="120" width="320" height="320" fill={C.asphaltLight} opacity="0.45" />
+      <line x1="400" y1="0" x2="400" y2="112" stroke={C.line} strokeWidth="3" strokeDasharray="14 12" />
+      <line x1="400" y1="520" x2="400" y2="560" stroke={C.line} strokeWidth="3" strokeDasharray="14 12" />
+      <line x1="320" y1="0" x2="320" y2="112" stroke={C.line} strokeWidth="2.5" strokeDasharray="14 12" opacity="0.85" />
+      <line x1="480" y1="0" x2="480" y2="112" stroke={C.line} strokeWidth="2.5" strokeDasharray="14 12" opacity="0.85" />
+      <line x1="320" y1="448" x2="320" y2="560" stroke={C.line} strokeWidth="2.5" strokeDasharray="14 12" opacity="0.85" />
+      <line x1="480" y1="448" x2="480" y2="560" stroke={C.line} strokeWidth="2.5" strokeDasharray="14 12" opacity="0.85" />
+      <line x1="0" y1="200" x2="232" y2="200" stroke={C.line} strokeWidth="2.5" strokeDasharray="14 12" opacity="0.85" />
+      <line x1="0" y1="280" x2="232" y2="280" stroke={C.line} strokeWidth="2.5" strokeDasharray="14 12" opacity="0.85" />
+      <line x1="0" y1="360" x2="232" y2="360" stroke={C.line} strokeWidth="2.5" strokeDasharray="14 12" opacity="0.85" />
+      <line x1="568" y1="200" x2="800" y2="200" stroke={C.line} strokeWidth="2.5" strokeDasharray="14 12" opacity="0.85" />
+      <line x1="568" y1="280" x2="800" y2="280" stroke={C.line} strokeWidth="2.5" strokeDasharray="14 12" opacity="0.85" />
+      <line x1="568" y1="360" x2="800" y2="360" stroke={C.line} strokeWidth="2.5" strokeDasharray="14 12" opacity="0.85" />
+      <line x1="240" y1="0" x2="240" y2="560" stroke={C.line} strokeWidth="2" opacity="0.45" />
+      <line x1="560" y1="0" x2="560" y2="560" stroke={C.line} strokeWidth="2" opacity="0.45" />
+      <line x1="0" y1="120" x2="800" y2="120" stroke={C.line} strokeWidth="2" opacity="0.45" />
+      <line x1="0" y1="440" x2="800" y2="440" stroke={C.line} strokeWidth="2" opacity="0.45" />
+      <rect x="385" y="430" width="30" height="90" rx="15" fill="#e2e8f0" stroke="#94a3b8" strokeWidth="2.5" />
+      {[0, 1, 2, 3].map((i) => (
+        <line
+          key={i}
+          x1={390}
+          y1={508 - i * 20}
+          x2={410}
+          y2={492 - i * 20}
+          stroke="#cbd5e1"
+          strokeWidth="3"
+        />
+      ))}
+      <PathArrow d="M440 520 L440 350 Q440 240 360 240 L180 240" color={C.path} />
+      <PathArrow d="M360 54 L360 520" color={C.amber} width={4} dashed />
+      <Car x={440} y={520} color={C.ego} dark={C.egoDark} label="You" indicator="left" />
+      <Car x={360} y={74} rotate={180} color={C.other} label="Oncoming" />
+      <circle cx="370" cy="242" r="25" fill={C.hazard} opacity="0.18" />
+      <Marker x={370} y={242} n={1} tone="red" />
+      <Label x={640} y={100} text="Island gives no priority" tone="red" />
+      <Label x={650} y={150} text="Oncoming traffic first" tone="amber" />
+      <Label x={650} y={492} text="Raised island — do not drive over" tone="navy" />
+      <line x1="560" y1="486" x2="422" y2="472" stroke={C.navy} strokeWidth="2" strokeDasharray="5 4" />
+      <Label x={530} y={545} text="Left-turn lane" tone="green" />
+    </RoadCanvas>
+  )
+}
+
 export function RightTurnDiagram() {
   return (
     <RoadCanvas title="Right turn into the nearest lane" label="Right turn diagram">
