@@ -11,9 +11,11 @@
       (function () {
         try {
           var saved = localStorage.getItem('gdn-theme');
-          var dark = saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+          var dark = saved ? saved === 'dark' : true;
           if (dark) document.documentElement.classList.add('dark');
           document.documentElement.style.colorScheme = dark ? 'dark' : 'light';
+          var meta = document.querySelector('meta[name="theme-color"]');
+          if (meta) meta.setAttribute('content', dark ? '#0c141c' : '#17334f');
         } catch (error) {}
       })();
     </script>

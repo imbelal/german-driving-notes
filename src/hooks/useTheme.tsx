@@ -10,9 +10,16 @@ interface ThemeContextValue {
 const ThemeContext = createContext<ThemeContextValue | null>(null)
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [theme, setTheme] = useState<Theme>(() =>
-    typeof document !== 'undefined' && document.documentElement.classList.contains('dark') ? 'dark' : 'light',
-  )
+  const [theme, setTheme] = useState<Theme>(() => {
+    try {
+      const saved = localStorage.getItem('gdn-theme')
+      if (saved === 'light' || saved === 'dark') return saved
+    } catch {
+      return 'dark'
+    }
+    if (typeof document !== 'undefined' && document.documentElement.classList.contains('dark')) return 'dark'
+    return 'dark'
+  })
 
   useEffect(() => {
     document.documentElement.classList.toggle('dark', theme === 'dark')

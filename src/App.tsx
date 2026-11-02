@@ -9,6 +9,7 @@ import { NotFound } from './pages/NotFound'
 import { Rules } from './pages/Rules'
 import { ScenarioPage } from './pages/ScenarioPage'
 import { Signs } from './pages/Signs'
+import { Tips } from './pages/Tips'
 import { TechnicalQuestions } from './pages/TechnicalQuestions'
 import { Vocabulary } from './pages/Vocabulary'
 
@@ -26,6 +27,7 @@ function App() {
         <Route path="rules" element={<Rules />} />
         <Route path="vocabulary" element={<Vocabulary />} />
         <Route path="technical-questions" element={<TechnicalQuestions />} />
+        <Route path="tips" element={<Tips />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>

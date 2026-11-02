@@ -5,6 +5,7 @@ import {
   ChevronRight,
   Home,
   Languages,
+  Lightbulb,
   ListChecks,
   Scale,
   Search,
@@ -176,6 +177,16 @@ export function Sidebar({ open, onClose }: { open: boolean; onClose: () => void 
             Reference
           </p>
           <div className="space-y-0.5">
+            <NavLink
+              to="/tips"
+              onClick={onClose}
+              className={({ isActive }) =>
+                `${linkBase} ${isActive ? 'bg-navy text-white' : 'text-ink-soft hover:bg-paper hover:text-ink'}`
+              }
+            >
+              <Lightbulb className="h-4 w-4" />
+              Driving tips
+            </NavLink>
             <NavLink
               to="/quiz"
               onClick={onClose}
