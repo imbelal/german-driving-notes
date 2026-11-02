@@ -9,6 +9,7 @@ import {
   Scale,
   Search,
   Signpost,
+  Wrench,
   X,
 } from 'lucide-react'
 import { useState } from 'react'
@@ -200,6 +201,16 @@ export function Sidebar({ open, onClose }: { open: boolean; onClose: () => void 
             >
               <Languages className="h-4 w-4" />
               Exam vocabulary
+            </NavLink>
+            <NavLink
+              to="/technical-questions"
+              onClick={onClose}
+              className={({ isActive }) =>
+                `${linkBase} ${isActive ? 'bg-navy text-white' : 'text-ink-soft hover:bg-paper hover:text-ink'}`
+              }
+            >
+              <Wrench className="h-4 w-4" />
+              Technical questions
             </NavLink>
             <NavLink
               to="/checklists"

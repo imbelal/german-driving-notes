@@ -9,6 +9,7 @@ import { NotFound } from './pages/NotFound'
 import { Rules } from './pages/Rules'
 import { ScenarioPage } from './pages/ScenarioPage'
 import { Signs } from './pages/Signs'
+import { TechnicalQuestions } from './pages/TechnicalQuestions'
 import { Vocabulary } from './pages/Vocabulary'
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
         <Route path="signs" element={<Signs />} />
         <Route path="rules" element={<Rules />} />
         <Route path="vocabulary" element={<Vocabulary />} />
+        <Route path="technical-questions" element={<TechnicalQuestions />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
