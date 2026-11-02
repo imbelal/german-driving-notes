@@ -19,7 +19,7 @@ export function SpeakButton({
       className={`grid h-8 w-8 shrink-0 place-items-center rounded-lg border transition-colors ${
         tone === 'navy'
           ? 'border-white/15 bg-white/5 text-slate-200 hover:bg-white/10 hover:text-white'
-          : 'border-line bg-white text-ink-soft hover:border-navy/25 hover:text-navy'
+          : 'border-line bg-card text-ink-soft hover:border-navy/25 hover:text-navy'
       }`}
     >
       <Volume2 className="h-3.5 w-3.5" />

@@ -99,7 +99,7 @@ export function ScenarioPage() {
 
         <div className="mt-6 flex flex-col gap-3 rounded-2xl border border-amber/40 bg-amber-soft/70 p-4 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-start gap-3">
-            <span className="mt-0.5 grid h-7 w-7 shrink-0 place-items-center rounded-lg bg-amber text-[11px] font-black text-navy">
+            <span className="mt-0.5 grid h-7 w-7 shrink-0 place-items-center rounded-lg bg-amber text-[11px] font-black text-navy dark:text-navy-deep">
               !
             </span>
             <div>
@@ -113,7 +113,7 @@ export function ScenarioPage() {
             className={`no-print inline-flex shrink-0 items-center justify-center gap-2 rounded-xl px-3.5 py-2 text-[11px] font-bold transition-colors ${
               done
                 ? 'bg-forest text-white hover:bg-forest/90'
-                : 'border border-navy/20 bg-white text-navy hover:border-navy/40'
+                : 'border border-navy/20 bg-card text-navy hover:border-navy/40'
             }`}
           >
             {done ? <CheckCircle2 className="h-4 w-4" /> : <Circle className="h-4 w-4" />}
@@ -135,7 +135,7 @@ export function ScenarioPage() {
             <button
               type="button"
               onClick={() => setDiagramOpen(true)}
-              className="no-print inline-flex items-center gap-1 rounded-lg border border-line bg-white px-2 py-1 text-[10px] font-semibold text-ink-soft transition-colors hover:text-ink"
+              className="no-print inline-flex items-center gap-1 rounded-lg border border-line bg-card px-2 py-1 text-[10px] font-semibold text-ink-soft transition-colors hover:text-ink"
             >
               <Maximize2 className="h-3 w-3" />
               Enlarge
@@ -171,7 +171,7 @@ export function ScenarioPage() {
               <button
                 type="button"
                 onClick={() => setDiagramOpen(false)}
-                className="grid h-8 w-8 place-items-center rounded-lg border border-line bg-white text-ink-soft transition-colors hover:text-ink"
+                className="grid h-8 w-8 place-items-center rounded-lg border border-line bg-card text-ink-soft transition-colors hover:text-ink"
                 aria-label="Close enlarged diagram"
               >
                 <X className="h-4 w-4" />

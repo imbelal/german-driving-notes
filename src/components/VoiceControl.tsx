@@ -5,6 +5,7 @@ export function VoiceControl({
   voiceName,
   onChange,
   selectedVoice,
+  ready = true,
   tone = 'light',
   sample = 'Guten Tag. Bitte fahren Sie geradeaus.',
 }: {
@@ -12,6 +13,7 @@ export function VoiceControl({
   voiceName: string
   onChange: (name: string) => void
   selectedVoice: SpeechSynthesisVoice | null
+  ready?: boolean
   tone?: 'light' | 'navy'
   sample?: string
 }) {
@@ -28,7 +30,7 @@ export function VoiceControl({
               className={`rounded-lg border px-2 py-1 text-[10px] font-medium focus:outline-none ${
                 isNavy
                   ? 'border-white/15 bg-white/10 text-white'
-                  : 'border-line bg-white text-ink'
+                  : 'border-line bg-card text-ink'
               }`}
             >
               {voices.map((voice) => (
@@ -44,15 +46,15 @@ export function VoiceControl({
             className={`rounded-lg border px-2 py-1 text-[10px] font-semibold transition-colors ${
               isNavy
                 ? 'border-white/15 bg-white/10 text-white hover:bg-white/15'
-                : 'border-line bg-white text-ink-soft hover:border-navy/25 hover:text-navy'
+                : 'border-line bg-card text-ink-soft hover:border-navy/25 hover:text-navy'
             }`}
           >
             Test voice
           </button>
         </>
       ) : (
-        <span className={`text-[10px] font-medium ${isNavy ? 'text-amber' : 'text-brick'}`}>
-          No German voice detected — enable one in your system settings
+        <span className={`text-[10px] font-medium ${isNavy ? 'text-slate-400' : 'text-ink-soft'}`}>
+          {ready ? 'No German voice detected — enable one in your system settings' : 'Checking for a German voice…'}
         </span>
       )}
     </div>

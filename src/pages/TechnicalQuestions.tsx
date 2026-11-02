@@ -9,7 +9,7 @@ import { useGermanVoice } from '../hooks/useGermanVoice'
 export function TechnicalQuestions() {
   const [query, setQuery] = useState('')
   const [activeSection, setActiveSection] = useState('all')
-  const { voices, voiceName, setVoiceName, selectedVoice } = useGermanVoice()
+  const { voices, voicesReady, voiceName, setVoiceName, selectedVoice } = useGermanVoice()
 
   const search = query.trim().toLowerCase()
   const visibleSections = technicalSections
@@ -55,6 +55,7 @@ export function TechnicalQuestions() {
           voiceName={voiceName}
           onChange={setVoiceName}
           selectedVoice={selectedVoice}
+          ready={voicesReady}
         />
       </div>
 

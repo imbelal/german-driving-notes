@@ -267,7 +267,7 @@ export function Quiz() {
             <button
               type="button"
               onClick={() => startQuiz(mode)}
-              className="inline-flex items-center gap-2 rounded-xl bg-amber px-4 py-2.5 text-xs font-bold text-navy transition-colors hover:bg-amber/90"
+              className="inline-flex items-center gap-2 rounded-xl bg-amber px-4 py-2.5 text-xs font-bold text-navy dark:text-navy-deep transition-colors hover:bg-amber/90"
             >
               <RotateCcw className="h-3.5 w-3.5" />
               Try again
@@ -429,7 +429,7 @@ export function Quiz() {
                 disabled={answered}
                 className={`flex w-full items-start gap-3 rounded-xl border px-3.5 py-3 text-left text-[12.5px] font-medium transition-colors ${
                   state === 'idle'
-                    ? 'border-line bg-white text-ink hover:border-navy/30 hover:bg-paper'
+                    ? 'border-line bg-card text-ink hover:border-navy/30 hover:bg-paper'
                     : state === 'correct'
                       ? 'border-forest/30 bg-forest-soft/70 text-ink'
                       : state === 'wrong'
@@ -443,7 +443,7 @@ export function Quiz() {
                       ? 'border-forest bg-forest text-white'
                       : state === 'wrong'
                         ? 'border-brick bg-brick text-white'
-                        : 'border-line bg-white text-ink-soft'
+                        : 'border-line bg-card text-ink-soft'
                   }`}
                 >
                   {String.fromCharCode(65 + optionIndex)}

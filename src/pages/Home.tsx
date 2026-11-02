@@ -77,7 +77,7 @@ export function Home() {
             <div className="mt-6 flex flex-wrap gap-3">
               <Link
                 to="/scenario/right-before-left"
-                className="inline-flex items-center gap-2 rounded-xl bg-amber px-4 py-2.5 text-sm font-bold text-navy transition-colors hover:bg-amber/90"
+                className="inline-flex items-center gap-2 rounded-xl bg-amber px-4 py-2.5 text-sm font-bold text-navy dark:text-navy-deep transition-colors hover:bg-amber/90"
               >
                 Start with junctions
                 <ArrowRight className="h-4 w-4" />
@@ -182,7 +182,7 @@ export function Home() {
         </div>
         <Link
           to="/quiz"
-          className="inline-flex shrink-0 items-center gap-2 rounded-xl bg-amber px-4 py-2.5 text-xs font-bold text-navy"
+          className="inline-flex shrink-0 items-center gap-2 rounded-xl bg-amber px-4 py-2.5 text-xs font-bold text-navy dark:text-navy-deep"
         >
           Start quiz
           <ArrowRight className="h-3.5 w-3.5" />

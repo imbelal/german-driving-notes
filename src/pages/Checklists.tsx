@@ -41,7 +41,7 @@ function ChecklistCard({ checklist }: { checklist: Checklist }) {
                   className={`mt-0.5 grid h-4 w-4 shrink-0 place-items-center rounded border transition-colors ${
                     isChecked
                       ? 'border-forest bg-forest text-white'
-                      : 'border-line bg-white text-transparent'
+                      : 'border-line bg-card text-transparent'
                   }`}
                 >
                   <Check className="h-3 w-3" strokeWidth={3} />

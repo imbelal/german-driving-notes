@@ -3,6 +3,7 @@ import { getGermanVoices, pickBestGermanVoice, VOICE_STORAGE_KEY } from '../lib/
 
 export function useGermanVoice() {
   const [voices, setVoices] = useState<SpeechSynthesisVoice[]>([])
+  const [voicesReady, setVoicesReady] = useState(false)
   const [voiceName, setVoiceName] = useState(() => {
     try {
       return localStorage.getItem(VOICE_STORAGE_KEY) ?? ''
@@ -12,11 +13,15 @@ export function useGermanVoice() {
   })
 
   useEffect(() => {
-    if (typeof window === 'undefined' || !('speechSynthesis' in window)) return
+    if (typeof window === 'undefined' || !('speechSynthesis' in window)) {
+      setVoicesReady(true)
+      return
+    }
     const loadVoices = () => {
       const germanVoices = getGermanVoices()
       setVoices(germanVoices)
       if (germanVoices.length > 0) {
+        setVoicesReady(true)
         setVoiceName((current) => {
           if (current && germanVoices.some((voice) => voice.name === current)) return current
           return pickBestGermanVoice(germanVoices)?.name ?? ''
@@ -24,8 +29,12 @@ export function useGermanVoice() {
       }
     }
     loadVoices()
+    const fallback = window.setTimeout(() => setVoicesReady(true), 1200)
     window.speechSynthesis.addEventListener('voiceschanged', loadVoices)
-    return () => window.speechSynthesis.removeEventListener('voiceschanged', loadVoices)
+    return () => {
+      window.clearTimeout(fallback)
+      window.speechSynthesis.removeEventListener('voiceschanged', loadVoices)
+    }
   }, [])
 
   useEffect(() => {
@@ -39,5 +48,5 @@ export function useGermanVoice() {
 
   const selectedVoice = voices.find((voice) => voice.name === voiceName) ?? pickBestGermanVoice(voices) ?? null
 
-  return { voices, voiceName, setVoiceName, selectedVoice }
+  return { voices, voicesReady, voiceName, setVoiceName, selectedVoice }
 }

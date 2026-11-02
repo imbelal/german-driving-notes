@@ -20,6 +20,7 @@ import type { CategoryId } from '../content/types'
 import { useProgress } from '../hooks/useProgress'
 import { categoryIcons } from './categoryIcons'
 import { ProgressBar } from './ProgressBar'
+import { ThemeToggle } from './ThemeToggle'
 
 const linkBase =
   'flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition-colors'
@@ -81,14 +82,17 @@ export function Sidebar({ open, onClose }: { open: boolean; onClose: () => void 
               </span>
             </span>
           </NavLink>
-          <button
-            type="button"
-            onClick={onClose}
-            className="rounded-lg p-2 text-ink-soft transition-colors hover:bg-paper lg:hidden"
-            aria-label="Close navigation"
-          >
-            <X className="h-5 w-5" />
-          </button>
+          <div className="flex items-center gap-1.5">
+            <ThemeToggle />
+            <button
+              type="button"
+              onClick={onClose}
+              className="rounded-lg p-2 text-ink-soft transition-colors hover:bg-paper lg:hidden"
+              aria-label="Close navigation"
+            >
+              <X className="h-5 w-5" />
+            </button>
+          </div>
         </div>
 
         <div className="px-4">
@@ -98,11 +102,11 @@ export function Sidebar({ open, onClose }: { open: boolean; onClose: () => void 
               value={query}
               onChange={(event) => setQuery(event.target.value)}
               placeholder="Search rules and turns…"
-              className="w-full rounded-xl border border-line bg-paper py-2.5 pl-9 pr-3 text-sm text-ink placeholder:text-ink-soft/70 focus:border-navy/40 focus:bg-white focus:outline-none"
+              className="w-full rounded-xl border border-line bg-paper py-2.5 pl-9 pr-3 text-sm text-ink placeholder:text-ink-soft/70 focus:border-navy/40 focus:bg-card focus:outline-none"
             />
           </label>
           {query.trim().length > 0 && (
-            <div className="mt-2 overflow-hidden rounded-xl border border-line bg-white shadow-lg">
+            <div className="mt-2 overflow-hidden rounded-xl border border-line bg-card shadow-lg">
               {results.length === 0 ? (
                 <p className="px-3 py-3 text-xs text-ink-soft">No lessons found.</p>
               ) : (
@@ -272,7 +276,7 @@ export function MobileHeader({ onOpen }: { onOpen: () => void }) {
         Menu
       </button>
       <span className="text-xs font-bold tracking-tight text-ink">German Driving Notes</span>
-      <span className="w-16" />
+      <ThemeToggle />
     </header>
   )
 }

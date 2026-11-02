@@ -19,6 +19,40 @@
 
 html {
   scroll-behavior: smooth;
+  color-scheme: light;
+}
+
+.dark {
+  color-scheme: dark;
+  --color-ink: #e8eef4;
+  --color-ink-soft: #a6b6c6;
+  --color-paper: #0c141c;
+  --color-card: #141f2a;
+  --color-line: #2a3947;
+  --color-navy: #9ec9f5;
+  --color-navy-deep: #050c12;
+  --color-amber: #f5c542;
+  --color-amber-soft: #3a3117;
+  --color-forest: #5bd39b;
+  --color-forest-soft: #123328;
+  --color-brick: #ff8a80;
+  --color-brick-soft: #3a1d1d;
+}
+
+.dark .bg-navy {
+  background-color: #1b3a57;
+}
+
+.dark .group:hover .group-hover\:bg-navy {
+  background-color: #1b3a57;
+}
+
+.dark .bg-forest.text-white {
+  background-color: #1f7a52;
+}
+
+.dark .bg-brick.text-white {
+  background-color: #b91c1c;
 }
 
 body {
@@ -40,6 +74,24 @@ body {
 }
 
 @media print {
+  :root,
+  .dark {
+    color-scheme: light;
+    --color-ink: #16283d;
+    --color-ink-soft: #4a5c72;
+    --color-paper: #ffffff;
+    --color-card: #ffffff;
+    --color-line: #e4e0d6;
+    --color-navy: #17334f;
+    --color-navy-deep: #0f2438;
+    --color-amber: #f2b705;
+    --color-amber-soft: #fdf3cd;
+    --color-forest: #1c7a52;
+    --color-forest-soft: #e3f3ea;
+    --color-brick: #b9382a;
+    --color-brick-soft: #fbe8e5;
+  }
+
   aside,
   header,
   .no-print {
@@ -52,6 +104,7 @@ body {
 
   body {
     background: white;
+    color: #16283d;
   }
 
   .print-card {

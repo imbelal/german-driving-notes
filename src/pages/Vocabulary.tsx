@@ -23,7 +23,7 @@ function EntryRow({ entry, voice }: { entry: VocabEntry; voice: SpeechSynthesisV
 export function Vocabulary() {
   const [query, setQuery] = useState('')
   const [activeSection, setActiveSection] = useState('all')
-  const { voices: germanVoices, voiceName, setVoiceName, selectedVoice } = useGermanVoice()
+  const { voices: germanVoices, voicesReady, voiceName, setVoiceName, selectedVoice } = useGermanVoice()
 
   const search = query.trim().toLowerCase()
   const visibleSections = vocabSections
@@ -68,6 +68,7 @@ export function Vocabulary() {
             voiceName={voiceName}
             onChange={setVoiceName}
             selectedVoice={selectedVoice}
+            ready={voicesReady}
             tone="navy"
           />
         </div>
