@@ -2,6 +2,7 @@ import { ArrowUpRight, CheckCircle2 } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import type { Scenario } from '../content/types'
 import { useProgress } from '../hooks/useProgress'
+import { stepThroughMap } from '../content/stepThroughs'
 import { CategoryBadge } from './Sidebar'
 
 export function Difficulty({ level }: { level: 1 | 2 | 3 }) {
@@ -20,6 +21,7 @@ export function Difficulty({ level }: { level: 1 | 2 | 3 }) {
 export function ScenarioCard({ scenario }: { scenario: Scenario }) {
   const { isDone } = useProgress()
   const done = isDone(scenario.id)
+  const interactive = Boolean(stepThroughMap[scenario.id])
   return (
     <Link
       to={`/scenario/${scenario.id}`}
@@ -27,7 +29,15 @@ export function ScenarioCard({ scenario }: { scenario: Scenario }) {
     >
       <div>
         <div className="flex items-start justify-between gap-3">
-          <CategoryBadge categoryId={scenario.category} />
+          <div className="flex flex-wrap items-center gap-1.5">
+            <CategoryBadge categoryId={scenario.category} />
+            {interactive && (
+              <span className="inline-flex items-center gap-1 rounded-full bg-amber-soft px-2 py-1 text-[9px] font-bold uppercase tracking-wide text-navy">
+                <span className="h-1.5 w-1.5 rounded-full bg-amber" />
+                Interactive
+              </span>
+            )}
+          </div>
           {done ? (
             <CheckCircle2 className="h-5 w-5 shrink-0 text-forest" />
           ) : (

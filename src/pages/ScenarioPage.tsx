@@ -7,6 +7,7 @@ import {
   Circle,
   Lightbulb,
   Maximize2,
+  Play,
   Printer,
   Scale,
   X,
@@ -15,9 +16,11 @@ import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { categoryMap } from '../content/categories'
 import { relatedScenarios, scenarioMap, scenarios } from '../content/scenarios'
+import { stepThroughMap } from '../content/stepThroughs'
 import { useProgress } from '../hooks/useProgress'
 import { Difficulty, ScenarioCard } from '../components/ScenarioCard'
 import { DiagramLegend, ScenarioDiagram } from '../components/diagrams/ScenarioDiagram'
+import { StepThroughPlayer } from '../components/StepThroughPlayer'
 
 export function ScenarioPage() {
   const { id } = useParams<{ id: string }>()
@@ -52,6 +55,7 @@ export function ScenarioPage() {
   const previous = position > 0 ? siblings[position - 1] : undefined
   const next = position >= 0 && position < siblings.length - 1 ? siblings[position + 1] : undefined
   const related = relatedScenarios(scenario)
+  const stepThrough = stepThroughMap[scenario.id]
 
   return (
     <article>
@@ -132,6 +136,16 @@ export function ScenarioPage() {
             <span className="rounded-full bg-paper px-2.5 py-1 text-[10px] font-semibold text-ink-soft">
               {scenario.germanTerm ?? scenario.title}
             </span>
+            {stepThrough && (
+              <button
+                type="button"
+                onClick={() => document.getElementById('step-through')?.scrollIntoView({ behavior: 'smooth' })}
+                className="no-print inline-flex items-center gap-1 rounded-lg border border-amber/40 bg-amber-soft px-2 py-1 text-[10px] font-semibold text-navy"
+              >
+                <Play className="h-3 w-3" />
+                Step-through
+              </button>
+            )}
             <button
               type="button"
               onClick={() => setDiagramOpen(true)}
@@ -184,6 +198,12 @@ export function ScenarioPage() {
               <DiagramLegend />
             </div>
           </div>
+        </div>
+      )}
+
+      {stepThrough && (
+        <div className="mt-6">
+          <StepThroughPlayer key={stepThrough.scenarioId} lesson={stepThrough} />
         </div>
       )}
 
