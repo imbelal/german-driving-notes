@@ -1,4 +1,5 @@
 import {
+  AlertTriangle,
   ArrowRight,
   BookOpen,
   CheckCircle2,
@@ -164,6 +165,28 @@ export function Home() {
             <ScenarioCard key={scenario.id} scenario={scenario} />
           ))}
         </div>
+      </section>
+
+      <section className="flex flex-col items-start justify-between gap-4 rounded-2xl border border-brick/20 bg-brick-soft/50 p-6 sm:flex-row sm:items-center">
+        <div className="flex items-start gap-3">
+          <span className="mt-0.5 grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-brick/10 text-brick">
+            <AlertTriangle className="h-4.5 w-4.5" />
+          </span>
+          <div>
+            <h3 className="text-sm font-bold text-ink">The mistakes that fail tests most</h3>
+            <p className="mt-1 text-xs leading-relaxed text-ink-soft">
+              Right of way, shoulder checks, speed and the moments examiners watch closely — with
+              fixes and related lessons.
+            </p>
+          </div>
+        </div>
+        <Link
+          to="/mistakes"
+          className="inline-flex shrink-0 items-center gap-2 rounded-xl bg-navy px-4 py-2.5 text-xs font-bold text-white"
+        >
+          Review top mistakes
+          <ArrowRight className="h-3.5 w-3.5" />
+        </Link>
       </section>
 
       <section className="grid gap-4 rounded-2xl border border-line bg-card p-6 sm:grid-cols-3 sm:p-7">

@@ -1,4 +1,5 @@
 import {
+  AlertTriangle,
   BookOpenCheck,
   ChevronRight,
   Home,
@@ -168,6 +169,16 @@ export function Sidebar({ open, onClose }: { open: boolean; onClose: () => void 
             Reference
           </p>
           <div className="space-y-0.5">
+            <NavLink
+              to="/mistakes"
+              onClick={onClose}
+              className={({ isActive }) =>
+                `${linkBase} ${isActive ? 'bg-navy text-white' : 'text-ink-soft hover:bg-paper hover:text-ink'}`
+              }
+            >
+              <AlertTriangle className="h-4 w-4" />
+              Top mistakes
+            </NavLink>
             <NavLink
               to="/checklists"
               onClick={onClose}
